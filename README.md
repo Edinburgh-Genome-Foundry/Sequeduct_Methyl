@@ -33,17 +33,17 @@ nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r main \
     --genbank_dir 'path/to/genbank_ref/dir' \
     --sample_sheet 'path/to/sample_sheet.csv' \
     --param_sheet 'path/to/parameter_sheet.csv' \
-    --model_path '/full/path/to/dorado/model/directory' \###################
+    --model_path '/full/path/to/dorado/model/directory' \ ###################
     --projectname "Methylation Project"
 ```
 
 This command will create a directory of the results. Additionally, Nextflow automatically creates a 'work' directory to store all pipeline products. Ensure that you do not already have a directory named 'work' in this same location before running.
 
-Examples of both the sample sheet and parameter sheet are available under the `examples` directory. Through the parameter sheet, the thresholds for % methylation can be specified, alongside the methylases present in the bacterial sample or their corresponding recognition nucleotide sequence/pattern. Multiple methylase enzymes can be specified separated by a space. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
+Examples of both the sample sheet and parameter sheet are available under the `examples` directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, the methylases present in the bacterial sample can be specified, or their corresponding recognition nucleotide sequence/pattern. Multiple methylase enzymes can be specified separated by a space. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
 
 ### Details
 
-The methylation modifications desired to be checked can be specified out of 5mC_5hmC, 4mC_5mC, or 6mA using the `--model` parameter when running the pipeline. This is defaulted to 5mC_5hmC. Optional methylation level thresholds parameters can also be specified, using `--mod_m_threshold` for the 5mC threshold and `--mod_h_threshold` for the 5hmC threshold. If not specified, these methylation confidence thresholds are taken to be the optimised thresholds as specified in the nextflow.config file. 
+The methylation modifications desired to be checked can be specified out of 5mC_5hmC, 4mC_5mC, or 6mA using the `--model` parameter when running the pipeline. This is defaulted to 5mC_5hmC. Optional methylation level thresholds parameters can also be specified, using `--mod_m_threshold` for the 5mC threshold, `--mod_h_threshold` for the 5hmC threshold, and `--mod_a_threshold` for the 6mA threshold. If not specified, these methylation confidence thresholds are taken to be the optimised thresholds as specified in the nextflow.config file. 
 
 Additionally, alongside the final PDF file with detailed analysis output, the aligned BAM file and bedMethyl files are also automatically saved in the output directory. If you desire to not save these two extra files, set their corresponding parameters (`--aligned_bam` or `--bedMethyl` respectively) to 'false' when running the command below. If the additional FASTA reference file, sorted and indexed BAM files, or final report in html format are desired, then their corresponding parameters (`--fasta_ref`, `--indexed_bam`, or `--html_file` respectively) can be set to 'true' when running the command below.
 
@@ -51,4 +51,4 @@ The container image may update frequently with new updates in the software and p
 
 ## License = GPLv3+
 
-Copyright 2024 Edinburgh Genome Foundry, University of Edinburgh
+Copyright 2024 Edinburgh Genome Foundry, University of Edinburgh.

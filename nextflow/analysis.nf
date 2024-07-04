@@ -68,10 +68,10 @@ process summariseReads {
 		bedMethyl_file = "${barcode}_${sample_name}.bed"
 
 		"""
-		modkit pileup ${sorted_bam} ${bedMethyl_file} --log-filepath pileup_aln.log 
+		modkit pileup ${sorted_bam} ${bedMethyl_file} --log-filepath pileup_aln.log --mod-thresholds m:${params.mod_m_threshold} --mod-threshold h:${params.mod_h_threshold} --mod-thresholds a:${params.mod_a_threshold}
 		"""
-		// --filter-threshold C:0.75?
-		//--mod-thresholds m:${params.mod_m_threshold} --mod-threshold h:${params.mod_h_threshold}
+		// --filter-threshold C:0.75 --filter-threshold A:0.75 
+
 }
 
 process writeCSV {
@@ -86,7 +86,6 @@ process writeCSV {
 	script:
 		samplesheet_csv = "samples.csv"
 
-		//creates separate files that are collected into a single sample sheet csv
 		"""
 		echo "${params.projectname},${barcode},${sample_name},${bedMethyl_file}" >> ${samplesheet_csv}
 		"""
@@ -123,28 +122,6 @@ workflow analysis_workflow {
 		params_ch
 	
 	main:
-		// Channel
-        //     .fromPath(params.sample_sheet)
-        //     .splitCsv(header: true)
-        //     .unique { row -> [row['Sample'], row['Barcode_dir']] } 
-        //     .map { row ->
-		// 		def sample_name = row['Sample']
-        //         def barcode_name = row['Barcode_dir']
-		// 		def genbank_path = file("${params.genbank_dir}/${sample_name}.gb")
-        //         def barcode_path = file("${params.pod5_dir}/${barcode_name}")
-        //         return [sample_name, barcode_name, genbank_path, barcode_path]
-        //     }
-        //     .set { reads_ch }
-
-		// Channel
-		// 	.fromPath(params.sample_sheet)
-		// 	.splitCsv(header: true)
-		// 	.unique { row -> row['Sample'] }
-		// 	.map { row -> file(params.genbank_dir + '/' + row['Sample'] + '.gb') }
-		// 	.set { genbank_ch }	
-
-		// Channel.fromPath(params.param_sheet).set{ params_ch }
-
 		convertGenbank(reads_ch)
 		runDorado(convertGenbank.out)
 		indexReads(runDorado.out)
