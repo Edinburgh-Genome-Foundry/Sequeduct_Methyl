@@ -62,7 +62,7 @@ nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r main -entry converter 
     -with-docker converter_docker
 ```
 
-A `pod5_pass` directory will be created that contains the pod5 file outputs in their corresponding sample directory name. This `pod5_pass` directory should be used as input for `--pod5_dir` when running the analysis as stated [above](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main?tab=readme-ov-file#convert-fast5-files-to-pod5). #####
+A `pod5_pass` directory will be created that contains the pod5 file outputs in their corresponding sample directory name. This `pod5_pass` directory should be used as input for `--pod5_dir` when running the analysis as stated [above](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main?tab=readme-ov-file#convert-fast5-files-to-pod5).
 
 ### Details
 

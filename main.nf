@@ -9,9 +9,9 @@ workflow converter {
         .splitCsv(header: true)
         .unique { row -> row['Barcode_dir'] } 
         .map { row ->
-            def barcode_dir = row['Barcode_dir']
-            def barcode_path = file("${params.fast5_dir}")
-            return [barcode_dir, barcode_path]
+		def barcode_dir = row['Barcode_dir']
+		def barcode_path = file("${params.fast5_dir}")
+		return [barcode_dir, barcode_path]
         }
         .set { input_ch }
 
