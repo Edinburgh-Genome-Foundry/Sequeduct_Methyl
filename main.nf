@@ -1,8 +1,25 @@
 #!/usr/bin/env nextflow
 
+include { file_converter } from "$projectDir/nextflow/fast5_converter.nf"
 include { analysis_workflow } from "$projectDir/nextflow/analysis.nf"
 
-workflow {
+workflow converter {
+	Channel
+        .fromPath(params.sample_sheet)
+        .splitCsv(header: true)
+        .unique { row -> row['Barcode_dir'] } 
+        .map { row ->
+            def barcode_dir = row['Barcode_dir']
+            def barcode_path = file("${params.fast5_dir}")
+            return [barcode_dir, barcode_path]
+        }
+        .set { input_ch }
+
+	file_converter(input_ch)
+}
+
+
+workflow analysis {
 
 	Channel
         .fromPath(params.sample_sheet)

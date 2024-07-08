@@ -50,7 +50,6 @@ process indexReads {
 
 		"""
 		samtools sort ${aligned_bam} -o ${sorted_bam}
-		
 		samtools index ${sorted_bam} ${sorted_indexed_bam}
 		"""
 }
