@@ -1,20 +1,20 @@
 #!/usr/bin/env nextflow
 
 process convertGenbank {
-    publishDir "data/output/${barcode}", mode: "copy", pattern: "*.fa", enabled: params.fasta_ref
+	publishDir "data/output/${barcode}", mode: "copy", pattern: "*.fa", enabled: params.fasta_ref
 
-    input:
-        tuple val(sample_name), val(barcode), path(genbank_path), path(barcode_path)
+	input:
+        	tuple val(sample_name), val(barcode), path(genbank_path), path(barcode_path)
 
-    output:
-        tuple val(sample_name), val(barcode), path(barcode_path), path(sample_fasta)
+	output:
+        	tuple val(sample_name), val(barcode), path(barcode_path), path(sample_fasta)
 
-    script:
-        sample_fasta = sample_name + ".fa"
+	script:
+        	sample_fasta = sample_name + ".fa"
 
-        """
-        convert_genbank.py "${genbank_path}" "${sample_name}" "${sample_fasta}"
-        """
+        	"""
+        	convert_genbank.py "${genbank_path}" "${sample_name}" "${sample_fasta}"
+        	"""
 }
 
 process runDorado {

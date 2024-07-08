@@ -5,7 +5,7 @@
 
 # Sequeduct Methyl
 
-Sequeduct Methyl is a extension to [Sequeduct](https://github.com/Edinburgh-Genome-Foundry/Sequeduct) as a stand-alone Nextflow analysis pipeline to validate cytosine methylations (5mC or 5hmC) in DNA constructs.
+Sequeduct Methyl is a extension to [Sequeduct](https://github.com/Edinburgh-Genome-Foundry/Sequeduct) as a stand-alone Nextflow analysis pipeline to validate cytosine methylations (5mC or 5hmC) or adenine methylations (6mA) in DNA constructs.
 
 ## Usage
 
@@ -51,4 +51,4 @@ The container image may update frequently with new updates in the software and p
 
 ## License = GPLv3+
 
-Copyright 2024 Edinburgh Genome Foundry, University of Edinburgh.
+Copyright 2024 Edinburgh Genome Foundry, University of Edinburgh. Sequeduct Methyl is implemented by [Jennifer Claire Muscat](https://github.com/jennycmuscat).
