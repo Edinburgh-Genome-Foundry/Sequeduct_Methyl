@@ -1,0 +1,282 @@
+LOCUS       Exported                3278 bp ds-DNA     circular SYN 16-JUN-2024
+DEFINITION  synthetic circular DNA.
+ACCESSION   .
+VERSION     .
+KEYWORDS    .
+SOURCE      synthetic DNA construct
+  ORGANISM  synthetic DNA construct
+REFERENCE   1  (bases 1 to 3278)
+  AUTHORS   .
+  TITLE     Direct Submission
+  JOURNAL   Exported Sunday, Jun 16, 2024 from SnapGene 5.0.8
+            https://www.snapgene.com
+FEATURES             Location/Qualifiers
+     source          1..3278
+                     /organism="synthetic DNA construct"
+                     /mol_type="other DNA"
+     primer_bind     293..309
+                     /label=M13 fwd
+                     /note="common sequencing primer, one of multiple similar 
+                     variants"
+     promoter        320..338
+                     /label=T7 promoter
+                     /note="promoter for bacteriophage T7 RNA polymerase"
+     CDS             343..354
+                     /codon_start=1
+                     /product="Factor Xa recognition and cleavage site"
+                     /label=Factor Xa site
+                     /translation="IEGR"
+     misc_feature    370..1369
+                     /label=EGF_met_1
+     misc_feature    386..389
+                     /label=HaeIII
+     misc_feature    388..391
+                     /label=HpaII
+     misc_feature    388..391
+                     /label=MspI
+     misc_feature    402..406
+                     /label=Dcm
+     misc_feature    413..416
+                     /label=Hhal
+     misc_feature    422..425
+                     /label=HpaII
+     misc_feature    422..425
+                     /label=MspI
+     misc_feature    432..435
+                     /label=AluI
+     misc_feature    448..451
+                     /label=Hhal
+     misc_feature    466..469
+                     /label=TaqI
+     misc_feature    470..475
+                     /label=BamHI
+     misc_feature    471..474
+                     /label=Dam
+     misc_feature    481..484
+                     /label=HpaII
+     misc_feature    481..484
+                     /label=MspI
+     misc_feature    492..495
+                     /label=AluI
+     misc_feature    497..500
+                     /label=TaqI
+     misc_feature    506..511
+                     /label=EcoRI
+     misc_feature    513..516
+                     /label=Dam
+     misc_feature    519..522
+                     /label=Dam
+     misc_feature    536..539
+                     /label=Hhal
+     misc_feature    539..543
+                     /label=Dcm
+     misc_feature    551..554
+                     /label=TaqI
+     misc_feature    558..572
+                     /label=EcoBI
+     misc_feature    559..562
+                     /label=Dam
+     misc_feature    574..577
+                     /label=Dam
+     misc_feature    592..595
+                     /label=AluI
+     misc_feature    604..607
+                     /label=Hhal
+     misc_feature    606..618
+                     /label=EcoKI
+     misc_feature    613..616
+                     /label=HpaII
+     misc_feature    613..616
+                     /label=MspI
+     misc_feature    622..625
+                     /label=TaqI
+     misc_feature    631..635
+                     /label=Dcm
+     misc_feature    641..644
+                     /label=TaqI
+     misc_feature    664..667
+                     /label=HpaII
+     misc_feature    664..667
+                     /label=MspI
+     misc_feature    669..672
+                     /label=HpaII
+     misc_feature    669..672
+                     /label=MspI
+     misc_feature    696..699
+                     /label=TaqI
+     misc_feature    702..706
+                     /label=Dcm
+     misc_feature    717..729
+                     /label=EcoKI
+     misc_feature    745..749
+                     /label=Dcm
+     misc_feature    748..751
+                     /label=HaeIII
+     misc_feature    755..758
+                     /label=TaqI
+     misc_feature    774..779
+                     /label=BamHI
+     misc_feature    775..778
+                     /label=Dam
+     misc_feature    789..792
+                     /label=AluI
+     misc_feature    796..799
+                     /label=Hhal
+     misc_feature    810..813
+                     /label=TaqI
+     misc_feature    816..819
+                     /label=HaeIII
+     misc_feature    837..840
+                     /label=HaeIII
+     misc_feature    859..864
+                     /label=BclI
+     misc_feature    860..863
+                     /label=Dam
+     misc_feature    886..889
+                     /label=Hhal
+     misc_feature    894..897
+                     /label=Dam
+     misc_feature    896..899
+                     /label=TaqI
+     misc_feature    935..947
+                     /label=EcoKI
+     misc_feature    957..960
+                     /label=HaeIII
+     misc_feature    977..980
+                     /label=HpaII
+     misc_feature    977..980
+                     /label=MspI
+     misc_feature    1002..1005
+                     /label=Hhal
+     misc_feature    1047..1061
+                     /label=EcoBI
+     misc_feature    1062..1066
+                     /label=Dcm
+     misc_feature    1065..1070
+                     /label=BamHI
+     misc_feature    1066..1069
+                     /label=Dam
+     misc_feature    1088..1091
+                     /label=Hhal
+     misc_feature    1090..1093
+                     /label=Hhal
+     misc_feature    1108..1111
+                     /label=AluI
+     misc_feature    1122..1126
+                     /label=Dcm
+     misc_feature    1133..1136
+                     /label=Dam
+     misc_feature    1137..1140
+                     /label=Dam
+     misc_feature    1152..1155
+                     /label=Hhal
+     misc_feature    1186..1189
+                     /label=HpaII
+     misc_feature    1186..1189
+                     /label=MspI
+     misc_feature    1210..1213
+                     /label=HpaII
+     misc_feature    1210..1213
+                     /label=MspI
+     misc_feature    1227..1241
+                     /label=EcoBI
+     misc_feature    1228..1231
+                     /label=Dam
+     misc_feature    1258..1270
+                     /label=EcoKI
+     misc_feature    1263..1266
+                     /label=HaeIII
+     misc_feature    1285..1290
+                     /label=EcoRI
+     misc_feature    1297..1300
+                     /label=Hhal
+     misc_feature    1299..1302
+                     /label=Hhal
+     misc_feature    1303..1306
+                     /label=Dam
+     misc_feature    1309..1312
+                     /label=Dam
+     misc_feature    1316..1321
+                     /label=BamHI
+     misc_feature    1317..1320
+                     /label=Dam
+     misc_feature    1328..1331
+                     /label=HaeIII
+     misc_feature    1336..1339
+                     /label=Hhal
+     misc_feature    1361..1365
+                     /label=Dcm
+     rep_origin      complement(1538..2205)
+                     /direction=LEFT
+                     /label=Col E1 origin
+                     /label=Col\E1\origin
+                     /note="/vntifkey=33"
+     CDS             complement(2353..3150)
+                     /codon_start=1
+                     /label=KanR
+                     /note="/vntifkey=4"
+                     /translation="MIEQDGLHAGSPAAWVERLFGYDWAQQTIGCSDAAVFRLSAQGRP
+                     VLFVKTDLSGALNELQDEAARLSWLATTGVPCAAVLDVVTEAGRDWLLLGEVPGQDLLS
+                     SHLAPAEKVSIMADAMRRLHTLDPATCPFDHQAKHRIERARTRMEAGLVDQDDLDEEHQ
+                     GLAPAELFARLKASMPDGEDLVVTHGDACLPNIMVENGRFSGFIDCGRLGVADRYQDIA
+                     LATRDIAEELGGEWADRFLVLYGIAAPDSQRIAFYRLLDEFF*"
+     promoter        complement(3151..3255)
+                     /gene="bla"
+                     /label=AmpR promoter
+ORIGIN
+        1 ctaaattgta agcgttaata ttttgttaaa attcgcgtta aatttttgtt aaatcagctc
+       61 attttttaac caataggccg aaatcggcaa aatcccttat aaatcaaaag aatagaccga
+      121 gatagggttg agtggccgct acagggcgct cccattcgcc attcaggctg cgcaactgtt
+      181 gggaagggcg tttcggtgcg ggcctcttcg ctattacgcc agctggcgaa agggggatgt
+      241 gctgcaaggc gattaagttg ggtaacgcca gggttttccc agtcacgacg ttgtaaaacg
+      301 acggccagtg agcgcgacgt aatacgactc actatagggc gaattgaagg aaggccgtca
+      361 aggccgcatc ctgaggtctc gcagaggccg gttattacac gcctggcgcg gagcgcattg
+      421 cccgggacta aagctgcatc gattctggcg cgagtcccgt tctggtcgag gatcctcagt
+      481 ccggcattgc aagctgtcga ttgctgaatt cagatctaga tcatttagcg agacagcgcc
+      541 agggaaccca tcgaatgtga tcgcagtctg ctcgatcgta cattaaaagg aagctcccca
+      601 tacgcgcacg ctccggttta ctcgacgtta ccaggaagag tcgaacgaac cacagagcat
+      661 aatccggtcc ggtagttcct ttacaaagta caggttcgat tccaggcgag atgcctaacc
+      721 tagatgtgct gacggacgta tgctccaggc cacatcgaat cctgctttag ctgggatcca
+      781 agattggcag ctgaagcgcc ctttccatat cgagtggccc gtctgtcatc gattgtggcc
+      841 aatcgtctaa caaactgctg atcaagttta actcaccaaa ttatagcgct acagatcgaa
+      901 atctaaagtc tagacacgcg actagcctct gcttaacttt tgtgtgcaag ggttttggcc
+      961 cgcccgagcg gtgcagccgg ttaggaccat gtaatacatt tgcgccaaga cttcttttaa
+     1021 acatatgctt cctgcccagt agcggatgat aatcgtttgc tccaggatcc gtggaaggta
+     1081 acagcacgcg cgcgagccta atgtgccagc tccacgatta tccaggctgt ccgatcgatc
+     1141 aataggattc cgcgctgggg ttagcaagtg gcagcctaaa cgataccggg gacttgctta
+     1201 gtacatgctc cggtacaata catacgtgat ccagttgtgc tcctgcatcg gaacatcaac
+     1261 tgggccgtgc accagtatat ttatgaattc taggaggcgc gcgatctaga tctaaggatc
+     1321 ctaagatggc cttttgcgcg tagaaacagg gcgtatgaga ccaggtaccc tgggcctcat
+     1381 gggccttcct ttcactgccc gctttccagt cgggaaacct gtcgtgccag ctgcattaac
+     1441 atggtcatag ctgtttcctt gcgtattggg cgctctccgc ttcctcgctc actgactcgc
+     1501 tgcgctcggt cgttcgggta aagcctgggg tgcctaatga gcaaaaggcc agcaaaaggc
+     1561 caggaaccgt aaaaaggccg cgttgctggc gtttttccat aggctccgcc cccctgacga
+     1621 gcatcacaaa aatcgacgct caagtcagag gtggcgaaac ccgacaggac tataaagata
+     1681 ccaggcgttt ccccctggaa gctccctcgt gcgctctcct gttccgaccc tgccgcttac
+     1741 cggatacctg tccgcctttc tcccttcggg aagcgtggcg ctttctcata gctcacgctg
+     1801 taggtatctc agttcggtgt aggtcgttcg ctccaagctg ggctgtgtgc acgaaccccc
+     1861 cgttcagccc gaccgctgcg ccttatccgg taactatcgt cttgagtcca acccggtaag
+     1921 acacgactta tcgccactgg cagcagccac tggtaacagg attagcagag cgaggtatgt
+     1981 aggcggtgct acagagttct tgaagtggtg gcctaactac ggctacacta gaagaacagt
+     2041 atttggtatc tgcgctctgc tgaagccagt taccttcgga aaaagagttg gtagctcttg
+     2101 atccggcaaa caaaccaccg ctggtagcgg tggttttttt gtttgcaagc agcagattac
+     2161 gcgcagaaaa aaaggatctc aagaagatcc tttgatcttt tctacggggt ctgacgctca
+     2221 gtggaacgaa aactcacgtt aagggatttt ggtcatgaga ttatcaaaaa ggatcttcac
+     2281 ctagatcctt ttaaattaaa aatgaagttt taaatcaatc taaagtatat atgagtaaac
+     2341 ttggtctgac agttattaga aaaattcatc cagcagacga taaaacgcaa tacgctggct
+     2401 atccggtgcc gcaatgccat acagcaccag aaaacgatcc gcccattcgc cgcccagttc
+     2461 ttccgcaata tcacgggtgg ccagcgcaat atcctgataa cgatccgcca cgcccagacg
+     2521 gccgcaatca ataaagccgc taaaacggcc attttccacc ataatgttcg gcaggcacgc
+     2581 atcaccatgg gtcaccacca gatcttcgcc atccggcatg ctcgctttca gacgcgcaaa
+     2641 cagctctgcc ggtgccaggc cctgatgttc ttcatccaga tcatcctgat ccaccaggcc
+     2701 cgcttccata cgggtacgcg cacgttcaat acgatgtttc gcctgatgat caaacggaca
+     2761 ggtcgccggg tccagggtat gcagacgacg catggcatcc gccataatgc tcactttttc
+     2821 tgccggcgcc agatggctag acagcagatc ctgacccggc acttcgccca gcagcagcca
+     2881 atcacggccc gcttcggtca ccacatccag caccgccgca cacggaacac cggtggtggc
+     2941 cagccagctc agacgcgccg cttcatcctg cagctcgttc agcgcaccgc tcagatcggt
+     3001 tttcacaaac agcaccggac gaccctgcgc gctcagacga aacaccgccg catcagagca
+     3061 gccaatggtc tgctgcgccc aatcatagcc aaacagacgt tccacccacg ctgccgggct
+     3121 acccgcatgc aggccatcct gttcaatcat actcttcctt tttcaatatt attgaagcat
+     3181 ttatcagggt tattgtctca tgagcggata catatttgaa tgtatttaga aaaataaaca
+     3241 aataggggtt ccgcgcacat ttccccgaaa agtgccac
+//
