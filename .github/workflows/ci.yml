@@ -25,4 +25,4 @@ jobs:
 
       - name: "Release Docker image"
         run: |
-          docker push ghcr.io/edinburgh-genome-foundry/sequeduct:latest
+          docker push ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:latest
