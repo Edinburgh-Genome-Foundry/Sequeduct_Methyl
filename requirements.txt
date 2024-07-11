@@ -1,3 +1,4 @@
+biopython==1.83
 cffi==1.16.0
 cssselect2==0.7.0
 dorado==0.7.1
