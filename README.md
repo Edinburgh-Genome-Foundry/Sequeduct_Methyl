@@ -13,10 +13,16 @@ Sequeduct Methyl is a extension to [Sequeduct](https://github.com/Edinburgh-Geno
  
 Install [Nextflow](https://www.nextflow.io/) and [Docker](https://www.docker.com/).
 
-Pull the Nextflow pipeline:
+Additionally, install [SAMtools](https://github.com/samtools/samtools) (any version≥1.16) as well as [Modkit](https://github.com/nanoporetech/modkit) version 0.3.0. Also install [Dorado](https://github.com/nanoporetech/dorado) software version dorado-0.7.1-linux-x64. Subsequently, run the following to download the Dorado basecalling model.
 
 ```bash
-nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r main
+dorado download --model dna_r10.4.1_e8.2_400bps_hac@v5.0.0
+```
+
+Pull the Sequeduct Methyl Nextflow pipeline:
+
+```bash
+nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1
 ```
 
 To ensure optimal performance, please check that all package requirements are downloaded, and meet or exceed the versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file.
@@ -25,17 +31,17 @@ To ensure optimal performance, please check that all package requirements are do
 
 #### Analyse methylation readouts
 
-Change to the directory you wish to create your pipeline analysis output in. Copy (or link) all raw read POD5 directories from Oxford Nanopore Sequencing runs to this specified directory. All directories should specify different barcodes/indexes from the run, and should be contained within a single directory whose path is used for the `--pod5_dir` parameter when running the analysis command below. Also include the path to the directory containing the genbank reference files using `--genbank_dir`, sample sheet using `--sample_sheet` and parameter sheet using `--param_sheet`.
+Change to the directory you wish to create your pipeline analysis output in. Copy (or link) all raw read POD5 directories from Oxford Nanopore Sequencing runs to this specified directory. All directories should specify different barcodes/indexes from the run, and should be contained within a single directory whose path is used for the `--pod5_dir` parameter when running the analysis command below. Also include the path to the directory containing the genbank reference files using `--genbank_dir`, sample sheet using `--sample_sheet` and parameter sheet using `--param_sheet`. The full path to the dorado model `dna_r10.4.1_e8.2_400bps_hac@v5.0.0` from the home directory should also be specified under `--model_path`
 
 The following should be run on the command line:
 
 ```bash
-nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r main -entry analysis \
+nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry analysis \
     --pod5_dir 'path/to/pod5_pass' \
     --genbank_dir 'path/to/genbank_ref/dir' \
     --sample_sheet 'path/to/sample_sheet.csv' \
     --param_sheet 'path/to/parameter_sheet.csv' \
-    --model_path '/full/path/to/dorado/model/directory' \ ###################
+    --model_path '/full/path/to/dorado/model/directory' \
     --projectname "Methylation Project"
 ```
 
@@ -64,7 +70,7 @@ docker build -f Sequeduct_Methyl/containers/Dockerfile --tag converter_docker .
 Subsequently, the command below is run to convert the FAST5 to POD5. Insert the path from your current directory to the sample sheet using `--sample_sheet` and the full path to the main directory containing subdirectories for each sample with FAST5 files using `--fast5_dir`.
 
 ```bash
-nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r main -entry converter \
+nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry converter \
     --sample_sheet 'path/to/sample_sheet.csv' \
     --fast5_dir '/full/path/to/fast5_pass' \
     -with-docker converter_docker
@@ -74,27 +80,7 @@ A `pod5_pass` directory will be created in the directory used for `--fast5_dir` 
 
 ## Demonstration
 
-This section outlines a demonstration of the input data required for Sequeduct Methyl as well as an interpretation of the outputs. 
-
-All extra files required for a demonstration run of Sequeduct Methyl are available under the directory `demo`, including sample POD5 data and the reference GenBank-format file.
-
-### Run
-
-Sequeduct Methyl requires four input files in total. The `pod5_dir` and GenBank-format reference file from the `demo` directory should be downloaded in a directory you wish to run the pipeline from. Additionally, download the `sample_sheet.csv` and `param_sheet.csv` from the `examples` directory, and then the following can be run:
-
-```bash
-nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r main -entry analysis \
-    --pod5_dir './pod5_pass' \
-    --genbank_dir './genbank' \
-    --sample_sheet './sample_sheet.csv' \
-    --param_sheet './parameter_sheet.csv' \
-    --model_path '/full/path/to/dorado/model/directory' \ ###################
-    --projectname "Methylation Project Demo"
-```
-
-This demo run uses the 5mC_5hmC Dorado basecaller model that identifies 5mC and 5hmC cytosine methylations. The final PDF report identifies DNA regions containing the patterns of the methylases EcoKDcm (CCWGG) and BamHI (GGATCC).
-
-Results files are saved in a new directory in your current working directory named `output`. By default, these output files include the aligned BAM file, bedMethyl table files, and final PDF report. The PDF report visualises the methylated position for each methylase pattern per sample.
+An additional [README.md](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/README.md) is available that demonstrates the use of Sequeduct Methyl with example data and output interpretation.
 
 ## License = GPLv3+
 
