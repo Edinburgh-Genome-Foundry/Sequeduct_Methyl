@@ -2,7 +2,7 @@
 
 This outlines a demonstration of the pipeline Sequeduct Methyl with example input data, as well as an interpretation of the outputs. 
 
-All extra files required for a demonstration run of Sequeduct Methyl are available under the directory `demo`, including sample POD5 data and the reference GenBank-format file.
+All extra files required for a demonstration run of Sequeduct Methyl are available under the directory `demo`, including sample [POD5 data](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/pod5_pass) and the reference [GenBank-format file](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/demo/genbank/EGF_met_1.gb).
 
 ### Run
 
