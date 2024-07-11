@@ -1,7 +1,7 @@
 #!/usr/bin/env nextflow
 
 process convertGenbank {
-	publishDir "data/output/${barcode}", mode: "copy", pattern: "*.fa", enabled: params.fasta_ref
+	publishDir "output/${barcode}", mode: "copy", pattern: "*.fa", enabled: params.fasta_ref
 
 	input:
         	tuple val(sample_name), val(barcode), path(genbank_path), path(barcode_path)
@@ -18,7 +18,7 @@ process convertGenbank {
 }
 
 process runDorado {
-	publishDir "data/output/${barcode}", mode: "copy", pattern: "*.bam", enabled: params.aligned_bam
+	publishDir "output/${barcode}", mode: "copy", pattern: "*.bam", enabled: params.aligned_bam
 
 	input:
 		tuple val(sample_name), val(barcode), path(barcode_path), path(sample_fasta)
@@ -35,8 +35,8 @@ process runDorado {
 }
 
 process indexReads {
-	publishDir "data/output/${barcode}", mode: "copy", pattern: "*.bam", enabled: params.indexed_bam
-	publishDir "data/output/${barcode}", mode: "copy", pattern: "*.bai", enabled: params.indexed_bam
+	publishDir "output/${barcode}", mode: "copy", pattern: "*.bam", enabled: params.indexed_bam
+	publishDir "output/${barcode}", mode: "copy", pattern: "*.bai", enabled: params.indexed_bam
 
 	input:
 		tuple val(barcode), path(aligned_bam), val(sample_name)
@@ -55,7 +55,7 @@ process indexReads {
 }
 
 process summariseReads {
-	publishDir "data/output/${barcode}", mode: "copy", pattern: "*.bed", enabled: params.bedMethyl
+	publishDir "output/${barcode}", mode: "copy", pattern: "*.bed", enabled: params.bedMethyl
 
 	input:
 		tuple val(barcode), path(sorted_bam), path(indexed_bai), val(sample_name)
@@ -92,8 +92,8 @@ process writeCSV {
 }
 
 process runEpiJinn {
-	publishDir "data/output", mode: "copy", pattern: "*.pdf"
-	publishDir "data/output", mode: "copy", pattern: "*.html", enabled: params.html_file
+	publishDir "output", mode: "copy", pattern: "*.pdf"
+	publishDir "output", mode: "copy", pattern: "*.html", enabled: params.html_file
 
 	input:
 		path genbank_path
