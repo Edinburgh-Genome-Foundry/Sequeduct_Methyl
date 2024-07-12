@@ -30,7 +30,7 @@ process runDorado {
 		aligned_bam = "${barcode}_aln.bam"
 		
 		"""
-		dorado basecaller ${params.model_path}/dna_r10.4.1_e8.2_400bps_hac@v5.0.0 ${barcode_path} --reference ${sample_fasta} --verbose --batchsize 64 --device cuda:0 --modified-bases ${params.model} > ${aligned_bam}
+		dorado basecaller ${params.model_path}/dna_r10.4.1_e8.2_400bps_hac@v5.0.0 ${barcode_path} --reference ${sample_fasta} --verbose --batchsize ${params.dorado_batchsize} --device ${params.dorado_device} --modified-bases ${params.model} > ${aligned_bam}
 		"""
 }
 
