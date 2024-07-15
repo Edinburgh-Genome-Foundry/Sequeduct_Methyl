@@ -25,7 +25,7 @@ Pull the Sequeduct Methyl Nextflow pipeline:
 nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1
 ```
 
-To ensure optimal performance, please check that all package requirements are downloaded, and meet or exceed the versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file.
+To ensure optimal performance, please check that all package dependencies are downloaded, and meet or exceed the versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file.
 
 ### Run
 
@@ -47,7 +47,7 @@ nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry analysis
 
 This command will create a new directory named `output` in the current working directory of the results. One final PDF report will be created, summarising the methylation analysis of all samples run in the pipeline. Additionally, Nextflow automatically creates a 'work' directory to store all pipeline products. Ensure that you do not already have a directory named 'work' in this same location before running.
 
-Examples of both the sample sheet and parameter sheet are available under the `examples` directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, the methylases present in the bacterial sample can be specified, or their corresponding recognition nucleotide sequence/pattern. Multiple methylase enzymes can be specified separated by a space. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
+Examples of both the sample sheet and parameter sheet are available under the [demo/sheets](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/sheets) directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, the methylases present in the bacterial sample can be specified, or their corresponding recognition nucleotide sequence/pattern. Multiple methylase enzymes can be specified separated by a space. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
 
 ### Details
 
