@@ -67,11 +67,8 @@ process summariseReads {
 		bedMethyl_file = "${barcode}_${sample_name}.bed"
 
 		"""
-		modkit pileup ${sorted_bam} ${bedMethyl_file} --log-filepath pileup_aln.log --mod-thresholds m:${params.mod_m_threshold} --mod-threshold h:${params.mod_h_threshold} --mod-thresholds a:${params.mod_a_threshold}
+		modkit pileup ${sorted_bam} ${bedMethyl_file} --log-filepath pileup_aln.log --mod-thresholds m:${params.5mC_threshold} --mod-threshold h:${params.5hmC_threshold} --mod-thresholds a:${params.6mA_threshold} --mod-thresholds 21839:${params.4mC_threshold}
 		"""
-		// --filter-threshold C:0.75 --filter-threshold A:0.75 
-		//--mod-thresholds 21839:
-
 }
 
 process writeCSV {
