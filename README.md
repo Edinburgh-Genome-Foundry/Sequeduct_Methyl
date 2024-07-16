@@ -11,7 +11,7 @@ Sequeduct Methyl is a extension to [Sequeduct](https://github.com/Edinburgh-Geno
 
 ### Setup
  
-Install [Nextflow](https://www.nextflow.io/) and [Docker](https://www.docker.com/).
+Install [Nextflow](https://www.nextflow.io/).
 
 Additionally, install [SAMtools](https://github.com/samtools/samtools) (any version≥1.16) as well as [Modkit](https://github.com/nanoporetech/modkit) version 0.3.0. Also install [Dorado](https://github.com/nanoporetech/dorado) software version dorado-0.7.1-linux-x64. Subsequently, run the following to download the Dorado basecalling model.
 
@@ -25,7 +25,7 @@ Pull the Sequeduct Methyl Nextflow pipeline:
 nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.0
 ```
 
-To ensure optimal performance, please check that all package dependencies are downloaded, and meet or exceed the versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file.
+To ensure optimal performance, check that all package dependencies are downloaded. Please be aware that this workflow was developed utilising Python package versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file.
 
 ### Run
 
@@ -47,11 +47,11 @@ nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.0 -entry analysis
 
 This command will create a new directory named `output` in the current working directory of the results. One final PDF report will be created, summarising the methylation analysis of all samples run in the pipeline. Additionally, Nextflow automatically creates a 'work' directory to store all pipeline products. Ensure that you do not already have a directory named 'work' in this same location before running.
 
-Examples of both the sample sheet and parameter sheet are available under the [demo/sheets](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/sheets) directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, the methylases present in the bacterial sample can be specified, or their corresponding recognition nucleotide sequence/pattern. Multiple methylase enzymes can be specified separated by a space. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
+Examples of both the sample sheet and parameter sheet are available under the [demo/sheets](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/sheets) directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, the methylases present in the bacterial sample can be specified. The associated methylation pattern of the methylase is automatically identified. Multiple methylase enzymes can be specified separated by a space. The methylases or enzymes involved with methylation processes available to choose from for (i) cytosine methylation are: AluI, BamHI, CpG, EcoKDcm, GpC, HaeIII, Hhal, HpaII, MetC, MspI, or for (ii) adenine methylation are EcoBI, EcoGII, EcoKDam, EcoKI, EcoRI, or TaqI. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
 
 ### Details
 
-The methylation modifications desired to be checked can be specified out of 5mC_5hmC, 4mC_5mC, or 6mA using the `--model` parameter when running the pipeline. This is defaulted to 5mC_5hmC. Optional methylation level thresholds parameters can also be specified, using `--mod_m_threshold` for the 5mC threshold, `--mod_h_threshold` for the 5hmC threshold, and `--mod_a_threshold` for the 6mA threshold. If not specified, these methylation confidence thresholds are taken to be the optimised thresholds as specified in the nextflow.config file. 
+The methylation modifications desired to be checked can be specified out of 5mC_5hmC, 4mC_5mC, or 6mA using the `--model` parameter when running the pipeline. This is defaulted to 5mC_5hmC. Optional methylation level thresholds parameters can also be specified, using `--mod_5mC_threshold` for the 5mC threshold, `--mod_5hmC_threshold` for the 5hmC threshold, `--mod_4mC_threshold` for the 4mC threshold and `--mod_6mA_threshold` for the 6mA threshold. If not specified, these methylation confidence thresholds are taken to be the optimised thresholds as specified in the nextflow.config file. 
 
 Additionally, alongside the final PDF file with detailed analysis output, the aligned BAM file and bedMethyl files are also automatically saved in the output directory. If you desire to not save these two extra files, set their corresponding parameters (`--aligned_bam` or `--bedMethyl` respectively) to 'false' when running the command below. If the additional FASTA reference file, sorted and indexed BAM files, or final report in html format are desired, then their corresponding parameters (`--fasta_ref`, `--indexed_bam`, or `--html_file` respectively) can be set to 'true' when running the command below.
 
@@ -61,7 +61,7 @@ It is advised to pull the newest version of Sequeduct Methyl before analysis, an
 
 If raw Oxford Nanopore Sequencing reads are in FAST5 format, the following can be run to convert these to POD5 files for Sequeduct Methyl.
 
-First, build the Docker container:
+First, install [Docker](https://www.docker.com/) and build the Docker container:
 
 ```bash
 docker build -f Sequeduct_Methyl/containers/Dockerfile --tag converter_docker .
