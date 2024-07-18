@@ -5,7 +5,7 @@
 
 # Sequeduct Methyl
 
-Sequeduct Methyl is a extension to [Sequeduct](https://github.com/Edinburgh-Genome-Foundry/Sequeduct) as a stand-alone Nextflow analysis pipeline to validate cytosine methylations (5mC, 5hmC, or 4mC) or adenine methylations (6mA) in plasmids and DNA constructs. 
+Sequeduct Methyl is a extension to [Sequeduct](https://github.com/Edinburgh-Genome-Foundry/Sequeduct) as a stand-alone Nextflow analysis pipeline to validate cytosine methylations (5mC, 5hmC, or 4mC) or adenine methylations (6mA) in plasmids and DNA constructs.
 
 A detailed demonstration is available under [demo](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo).
 
@@ -13,9 +13,16 @@ A detailed demonstration is available under [demo](https://github.com/Edinburgh-
 
 ### Setup
 
-Install [Nextflow](https://www.nextflow.io/).
+Install the following software:
 
-Additionally, install [SAMtools](https://github.com/samtools/samtools) (any version≥1.16) as well as [Modkit](https://github.com/nanoporetech/modkit) version 0.3.0. Also install [Dorado](https://github.com/nanoporetech/dorado) software version dorado-0.7.1-linux-x64. It is advised that you run this pipeline using an Nvidia GPU, as stated on their [GitHub](https://github.com/nanoporetech/dorado?tab=readme-ov-file#features).
+1. [Nextflow](https://www.nextflow.io/) to run the pipeline
+2. [Dorado](https://github.com/nanoporetech/dorado) software version dorado-0.7.2-linux-x64 for basecalling
+3. [SAMtools](https://github.com/samtools/samtools) (any version≥1.16) for indexing
+4. [Modkit](https://github.com/nanoporetech/modkit) version 0.3.1 for creating a summary table of methylations
+
+Make sure these software are available in your path. Additionally, check that all package dependencies are downloaded. Please be aware that this workflow was developed utilising Python package versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file. To ensure optimal performance, change package versions to those stated here.
+
+It is advised that you run this pipeline using an Nvidia GPU due to requirements for the basecaller Dorado, as stated on their [GitHub](https://github.com/nanoporetech/dorado?tab=readme-ov-file#features).
 
 Subsequently, run the following to download the Dorado basecalling model.
 
@@ -28,8 +35,6 @@ Pull the Sequeduct Methyl Nextflow pipeline:
 ```bash
 nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1
 ```
-
-To ensure optimal performance, check that all package dependencies are downloaded. Please be aware that this workflow was developed utilising Python package versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file.
 
 ### Run
 
