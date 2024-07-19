@@ -22,7 +22,7 @@ Install the following software:
 
 Make sure these software are available in your path. Additionally, check that all package dependencies are downloaded. Please be aware that this workflow was developed utilising Python package versions specified in the [requirements.txt](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/requirements.txt) file. To ensure optimal performance, change package versions to those stated here.
 
-It is advised that you run this pipeline using an Nvidia GPU due to requirements for the basecaller Dorado, as stated on their [GitHub](https://github.com/nanoporetech/dorado?tab=readme-ov-file#features).
+Please stick to the recommendations by [Dorado](https://github.com/nanoporetech/dorado) regarding the supported systems for running the basecalling software. This is detailed in the 'Platforms' section.
 
 Subsequently, run the following to download the Dorado basecalling model.
 
@@ -46,21 +46,21 @@ The following should be run on the command line:
 
 ```bash
 nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry analysis \
-    --pod5_dir 'path/to/pod5_pass' \
-    --genbank_dir 'path/to/genbank_ref/dir' \
-    --sample_sheet 'path/to/sample_sheet.csv' \
-    --param_sheet 'path/to/parameter_sheet.csv' \
-    --model_path '/full/path/to/dorado/model/directory' \
-    --projectname "Methylation Project"
+    --pod5_dir='path/to/pod5_pass' \
+    --genbank_dir='path/to/genbank_ref/dir' \
+    --sample_sheet='path/to/sample_sheet.csv' \
+    --param_sheet='path/to/parameter_sheet.csv' \
+    --model_path='/full/path/to/dorado/model/directory' \
+    --projectname='Methylation Project'
 ```
 
 This command will create a new directory named `output` in the current working directory of the results. One final PDF report will be created, summarising the methylation analysis of all samples run in the pipeline. Additionally, Nextflow automatically creates a 'work' directory to store all pipeline products. Ensure that you do not already have a directory named 'work' in this same location before running.
 
-Examples of both the sample sheet and parameter sheet are available under the [demo/sheets](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/sheets) directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, the methylases present in the bacterial sample can be specified. The associated methylation pattern of the methylase is automatically identified. Multiple methylase enzymes can be specified separated by a space. The methylases or enzymes involved with methylation processes available to choose from for (i) cytosine methylation are: AluI, BamHI, CpG, EcoKDcm, GpC, HaeIII, Hhal, HpaII, MetC, MspI, or for (ii) adenine methylation are EcoBI, EcoGII, EcoKDam, EcoKI, EcoRI, or TaqI. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
+Examples of both the sample sheet and parameter sheet are available under the [demo/sheets](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/sheets) directory. Through the parameter sheet, the thresholds for % methylations can be specified. This refers to the % of reads that are modified for that position to be deemed methylated, or unmethylated. Any positions with a % of reads between these two specified modification cutoffs are considered undetermined. Alongside this in the parameter sheet, specify the methylases whose patterns will be considered to identify methylated positions. The associated methylation pattern of the methylase is automatically identified. Multiple methylase enzymes can be specified separated by a space. The methylases available to choose from for (i) cytosine methylation are: AluI, BamHI, CpG, EcoKDcm, GpC, HaeIII, Hhal, HpaII, MspI for cytosine methylations, or MetC can be used for methylating all C positions, whilst the methylases available for (ii) adenine methylation are: EcoBI, EcoKDam, EcoKI, EcoRI, or TaqI, or EcoGII for methylating all A positions. For more detailed information, please consult [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn).
 
 ### Details
 
-The methylation modifications desired to be checked can be specified out of 5mC_5hmC, 4mC_5mC, or 6mA using the `--model` parameter when running the pipeline. This is defaulted to 5mC_5hmC. Optional methylation level thresholds parameters can also be specified, using `--mod_5mC_threshold` for the 5mC threshold, `--mod_5hmC_threshold` for the 5hmC threshold, `--mod_4mC_threshold` for the 4mC threshold and `--mod_6mA_threshold` for the 6mA threshold. If not specified, these methylation confidence thresholds are taken to be the optimised thresholds as specified in the nextflow.config file. 
+The desired methylation modifications to be checked can be specified from the models 5mC_5hmC, 4mC_5mC, or 6mA using the `--model` parameter when running the pipeline. The default model is set to 5mC_5hmC. Optional methylation level thresholds parameters can also be specified, using `--mod_5mC_threshold` for the 5mC threshold, `--mod_5hmC_threshold` for the 5hmC threshold, `--mod_4mC_threshold` for the 4mC threshold and `--mod_6mA_threshold` for the 6mA threshold. If not specified, these methylation confidence thresholds are taken to be the optimised thresholds as specified in the nextflow.config file. 
 
 Additionally, alongside the final PDF file with detailed analysis output, the aligned BAM file and bedMethyl files are also automatically saved in the output directory. If you desire to not save these two extra files, set their corresponding parameters (`--aligned_bam` or `--bedMethyl` respectively) to 'false' when running the command below. If the additional FASTA reference file, sorted and indexed BAM files, or final report in html format are desired, then their corresponding parameters (`--fasta_ref`, `--indexed_bam`, or `--html_file` respectively) can be set to 'true' when running the command below.
 
