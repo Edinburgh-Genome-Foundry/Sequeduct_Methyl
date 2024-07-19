@@ -29,30 +29,36 @@ The PDF report is structured into sections for each sample (barcode), with subse
 The cover page appears at the front, detailing the project name, the number of samples analysed, and the methylases present:
 
 <p align="center">
-<img alt="Cover page" title="Sequeduct Methyl" src="images/1_Cover.png" width="600">
+<img alt="Cover page" title="Sequeduct Methyl" src="images/1_Cover.png" width="800">
 </p>
 
 Taking barcode 2 as an example, this section opens with an illustrtaion of the main components present in the sample plasmid, including base positions across the sequence.
 
 <p align="center">
-<img alt="Cover page" title="Sequeduct Methyl" src="images/2_Plasmid_sequence.png" width="600">
+<img alt="Cover page" title="Sequeduct Methyl" src="images/2_Plasmid_sequence.png" width="800">
 </p>
 
 Using the methylase EcoKDcm as an example, the following shows the methylation illustrations for barcode 2. Both 5hmC and 5mC modifications are identified and reported separately. Each cytosine base present within every EcoKDcm methylation site sequence, CCWGG, contains a box with a C as shown below. The arrow represents the strand that the cytosine is present on (forward or backward strand). The figure is colour-coded to show methylated (red), undecided (yellow), or unmethylated (grey) cytosine positions. These are determined by the methylation thresholds set in the [parameter sheet](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/demo/sheets/param_sheet.csv). A bedMethyl table is also included below each illustration with corresponding cystosine positions for all CCWGG sequences in the plasmid.
 
 <p align="center">
-<img alt="Cover page" title="Sequeduct Methyl" src="images/3_5hmC_Dcm.png" width="600">
+<img alt="Cover page" title="Sequeduct Methyl" src="images/3_5hmC_Dcm.png" width="800">
 </p>
 
 It is expected that all cytosines do not flag up as methylated with the 5hmC modification, as this methylation is not typically native to bacteria.
 
 <p align="center">
-<img alt="Cover page" title="Sequeduct Methyl" src="images/4_5mC_Dcm.png" width="600">
+<img alt="Cover page" title="Sequeduct Methyl" src="images/4_5mC_Dcm.png" width="800">
 </p>
 
 5mC modifications, however, are prevalent in bacterial plasmids, and so this illustration shows cytosines that have been labelled as methylated, due to a high enough coverage per position with over 70% of reads modified. Four cytosine positions are have an undecided modification status due to an insufficient percentage of reads being modified.
 
 This is also repeated for results for the BamHI methylase with barcode 2, as this was specified in the parameter sheet. The full [PDF report](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/output/EpiJinn_report.pdf) can be viewed to see all sample, modification type, and methylase sections.
+
+<p align="center">
+<img alt="Cover page" title="Sequeduct Methyl" src="images/5_Appendix.png" width="800">
+</p>
+
+The final page contains an Appendix that further explains the structure of the report and a description of all abbreviations used.
 
 ## Setting Additional Parameters
 
