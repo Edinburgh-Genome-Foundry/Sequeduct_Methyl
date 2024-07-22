@@ -24,7 +24,7 @@ Make sure these software are available in your path. Additionally, check that al
 
 Please stick to the recommendations by [Dorado](https://github.com/nanoporetech/dorado) regarding the supported systems for running the basecalling software. This is detailed in the 'Platforms' section.
 
-Subsequently, run the following to download the Dorado basecalling model.
+Subsequently, run the following to download the Dorado basecalling model. This will be saved in your current directory.
 
 ```bash
 dorado download --model dna_r10.4.1_e8.2_400bps_hac@v5.0.0
