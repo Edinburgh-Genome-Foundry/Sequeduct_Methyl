@@ -60,6 +60,13 @@ This is also repeated for results for the BamHI methylase with barcode 2, as thi
 
 The final page contains an Appendix that further explains the structure of the report and a description of all abbreviations used.
 
+## Interpreting Pipeline Results
+
+* Inspect both the bedMethyl file saved for each barcode and sample, for example `barcode1_EGF_met_1.bed` as well as the final PDF report `EpiJinn_report.pdf`.
+* Review the main components constituting the reference plasmid from the 'plot of the sequence' per sample in the PDF report.
+* Locate the methylated positions per barcode shown in red (with status '1') and the undetermined positions in yellow (with status 'U'). Match the location of the methylated positions stated in the bedMethyl tables to the reference sequence plot to identify the regions of the plasmid that the modifications occur in, taking the strand into consideration.
+* Take note of the coverage for the positions marked as methylated (in red) in the PDF report. Low coverages may not truly reflect a genuine modified position. Take this into account to reject methylation statuses.
+
 ## Setting Additional Parameters
 
 Besides the parameters specified above, there are additional optional parameters that can be set by the user. The full list of default parameters can be found in the [nextflow.config](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/nextflow.config) file.
