@@ -22,7 +22,7 @@ This demo run uses the 5mC_5hmC Dorado basecaller model that identifies 5mC and 
 
 ## Output
 
-Results files are saved in a new directory in your current working directory named `output`. By default, these output files include the aligned BAM file, bedMethyl table files, and final PDF report. 
+Results files are saved in a new directory in your current working directory named `output`. By default, these output files include the [aligned BAM file](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/demo/output/barcode1/barcode1_aln.bam) per barcode, [bedMethyl table file](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/demo/output/barcode1/barcode1_EGF_met_1.bed) per barcode, and final [PDF report](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/demo/output/EpiJinn_report.pdf) for all barcodes. 
 
 The PDF report is structured into sections for each sample (barcode), with subsections containing methylation visualisations per modification type per methylase pattern. A description of the sections is outlined below.
 
@@ -59,6 +59,20 @@ This is also repeated for results for the BamHI methylase with barcode 2, as thi
 </p>
 
 The final page contains an Appendix that further explains the structure of the report and a description of all abbreviations used.
+
+## Interpreting Pipeline Results
+
+* Inspect both the bedMethyl file saved for each barcode and sample, for example `barcode1_EGF_met_1.bed` as well as the final PDF report `EpiJinn_report.pdf`.
+* Review the main components constituting the reference plasmid from the 'plot of the sequence' per sample in the PDF report.
+* Observe the plots illustrating the methylated positions in the plasmid sequence per barcode. Each plot includes all methylation pattern of the specified methylase found in the plasmid. Patterns continaing a methylated base are shown in red, whilst undetermined modified bases are shown in yellow. Arrows refer to the strand the modification is present on.
+* Locate the methylated positions per barcode shown in red (with status '1') and the undetermined positions in yellow (with status 'U'). Match the location of the methylated positions stated in the bedMethyl tables to the reference sequence plot to identify the regions of the plasmid that the modifications occur in, taking the strand into consideration.
+* Take note of the coverage for the positions marked as methylated (in red) in the PDF report. Positions with a methylated status that contain a low coverage may not reflect a genuine modified position. Therefore, positions with coverages below a chosen threshold may excluded from being classified as methylated due to this uncertainty. 
+* Utilise bedMethyl files for any further analysis desired. Only positions that contain a base status other than the canonical form from least one read are included in this file. Columns in the bedMethyl file correspond to the below, respectively. More information regarding these fields can be found on [Modkit's GitHub](https://github.com/nanoporetech/modkit).
+
+| chrom |   start position |    end position|   modified base code and motif |  score | strand |    start position |    end position |	color | Nvalid_cov |    percent_modified |  Nmod |  Ncanonical | Nother_mod | Ndelete |  Nfail |  Ndiff |    Nnocall |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+
+* Nmod is of interest for assessing methylated base positions, as it refers to the number of reads that contain the specified modification in the basecalling model (such as 5mC) per position. 
 
 ## Setting Additional Parameters
 
