@@ -67,10 +67,12 @@ The final page contains an Appendix that further explains the structure of the r
 * Observe the plots illustrating the methylated positions in the plasmid sequence per barcode. Each plot includes all methylation pattern of the specified methylase found in the plasmid. Patterns continaing a methylated base are shown in red, whilst undetermined modified bases are shown in yellow. Arrows refer to the strand the modification is present on.
 * Locate the methylated positions per barcode shown in red (with status '1') and the undetermined positions in yellow (with status 'U'). Match the location of the methylated positions stated in the bedMethyl tables to the reference sequence plot to identify the regions of the plasmid that the modifications occur in, taking the strand into consideration.
 * Take note of the coverage for the positions marked as methylated (in red) in the PDF report. Positions with a methylated status that contain a low coverage may not reflect a genuine modified position. Therefore, positions with coverages below a chosen threshold may excluded from being classified as methylated due to this uncertainty. 
-* Utilise bedMethyl files for any further analysis desired. Columns in the bedMethyl file correspond to the below, respectively. More information regarding these fields can be found on [Modkit's GitHub](https://github.com/nanoporetech/modkit).
+* Utilise bedMethyl files for any further analysis desired. Only positions that contain a base status other than the canonical form from least one read are included in this file. Columns in the bedMethyl file correspond to the below, respectively. More information regarding these fields can be found on [Modkit's GitHub](https://github.com/nanoporetech/modkit).
 
 | chrom |   start position |    end position|   modified base code and motif |  score | strand |    start position |    end position |	color | Nvalid_cov |    percent_modified |  Nmod |  Ncanonical | Nother_mod | Ndelete |  Nfail |  Ndiff |    Nnocall |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+
+* Nmod is of interest for assessing methylated base positions, as it refers to the number of reads that contain the specified modification in the basecalling model (such as 5mC) per position. 
 
 ## Setting Additional Parameters
 
