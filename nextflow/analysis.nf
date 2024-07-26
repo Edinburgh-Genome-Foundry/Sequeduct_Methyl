@@ -76,7 +76,7 @@ process summariseReads {
 		bedMethyl_file = "${barcode}_${sample_name}.bed"
 
 		"""
-		modkit pileup ${sorted_bam} ${bedMethyl_file} --log-filepath pileup_aln.log --mod-thresholds m:${params.mod_5mC_threshold} --mod-threshold h:${params.mod_5hmC_threshold} --mod-thresholds a:${params.mod_6mA_threshold} --mod-thresholds 21839:${params.mod_4mC_threshold}
+		modkit pileup ${sorted_bam} ${bedMethyl_file} --log-filepath pileup_aln.log --mod-thresholds m:${params.mod_5mC_threshold} --mod-thresholds h:${params.mod_5hmC_threshold} --mod-thresholds a:${params.mod_6mA_threshold} --mod-thresholds 21839:${params.mod_4mC_threshold}
 		"""
 }
 
