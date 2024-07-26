@@ -1,5 +1,0 @@
-Parameter,Value
-methylated_cutoff,0.7
-unmethylated_cutoff,0.3
-methylases,EcoKDcm BamHI
-patterns,CCWGG
