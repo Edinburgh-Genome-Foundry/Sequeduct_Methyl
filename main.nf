@@ -9,7 +9,7 @@
 
 // You should have received a copy of the GNU General Public License along with Sequeduct Methyl. If not, see <https:www.gnu.org/licenses/>.
 
-include { file_converter } from "$projectDir/nextflow/fast5_converter.nf"
+include { fileConverter } from "$projectDir/nextflow/pod5_converter.nf"
 include { analysis_workflow } from "$projectDir/nextflow/analysis.nf"
 
 workflow converter {
@@ -24,7 +24,7 @@ workflow converter {
         }
         .set { input_ch }
 
-	file_converter(input_ch)
+	fileConverter(input_ch)
 }
 
 
