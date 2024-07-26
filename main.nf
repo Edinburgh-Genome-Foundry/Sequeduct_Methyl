@@ -40,8 +40,8 @@ workflow analysis {
 		def genbank_path = file("${params.genbank_dir}/${sample_name}.gb")
         def barcode_path = file("${params.pod5_dir}/${barcode_name}")
         return [sample_name, barcode_name, genbank_path, barcode_path]
-    }
-    .set { reads_ch }
+    	}
+    	.set { reads_ch }
 
 	Channel
 	.fromPath(params.sample_sheet)
