@@ -9,7 +9,7 @@
 
 // You should have received a copy of the GNU General Public License along with Sequeduct Methyl. If not, see <https:www.gnu.org/licenses/>.
 
-include { file_converter } from "$projectDir/nextflow/fast5_converter.nf"
+include { fileConverter } from "$projectDir/nextflow/pod5_converter.nf"
 include { analysis_workflow } from "$projectDir/nextflow/analysis.nf"
 
 workflow converter {
@@ -24,7 +24,7 @@ workflow converter {
         }
         .set { input_ch }
 
-	file_converter(input_ch)
+	fileConverter(input_ch)
 }
 
 
@@ -40,8 +40,8 @@ workflow analysis {
 		def genbank_path = file("${params.genbank_dir}/${sample_name}.gb")
         def barcode_path = file("${params.pod5_dir}/${barcode_name}")
         return [sample_name, barcode_name, genbank_path, barcode_path]
-    }
-    .set { reads_ch }
+    	}
+    	.set { reads_ch }
 
 	Channel
 	.fromPath(params.sample_sheet)

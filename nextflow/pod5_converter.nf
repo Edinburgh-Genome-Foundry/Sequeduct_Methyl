@@ -9,7 +9,7 @@
 
 // You should have received a copy of the GNU General Public License along with Sequeduct Methyl. If not, see <https:www.gnu.org/licenses/>.
 
-process file_converter {
+process fileConverter {
     publishDir "${barcode_path}/pod5_pass", mode: "copy", pattern: "*.pod5"
 
     input:
@@ -30,5 +30,5 @@ workflow {
         input_ch
     
     main:
-        converter(input_ch)
+        fileConverter(input_ch)
 }
