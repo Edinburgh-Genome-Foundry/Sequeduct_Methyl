@@ -70,10 +70,22 @@ It is advised to pull the newest version of Sequeduct Methyl before analysis, an
 
 If raw Oxford Nanopore Sequencing reads are in FAST5 format, the following can be run to convert these to POD5 files for Sequeduct Methyl.
 
-First, install [Docker](https://www.docker.com/) and build the Docker container:
+First, install [Docker](https://www.docker.com/) and clone the repository:
+
+```bash
+git clone https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl.git
+```
+
+Then, build the Docker container:
 
 ```bash
 docker build -f Sequeduct_Methyl/containers/Dockerfile --tag converter_docker .
+```
+
+Alternatively, those with access to EGF's container repositroy such as EGF staff, can pull the Docker image using the following:
+
+```bash
+docker pull ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:latest
 ```
 
 Subsequently, the command below is run to convert the FAST5 to POD5. Insert the path from your current directory to the sample sheet using `--sample_sheet` and the full path to the main directory containing subdirectories for each sample with FAST5 files using `--fast5_dir`.
