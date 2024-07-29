@@ -21,7 +21,11 @@ jobs:
       - name: "Build Docker image"
         run: |
           docker build . -f containers/Dockerfile \
+<<<<<<< HEAD
             -t ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:v0.1.1
+=======
+            -t ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:v0.1.1 \
+>>>>>>> 3b63e59 (Version update v0.1.1)
             -t ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:latest
 
       - name: "Release Docker image"
