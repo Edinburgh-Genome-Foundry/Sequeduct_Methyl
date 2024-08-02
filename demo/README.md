@@ -26,7 +26,7 @@ Results files are saved in a new directory in your current working directory nam
 
 The PDF report is structured into sections for each sample (barcode), with subsections containing methylation visualisations per modification type per methylase pattern. A description of the sections is outlined below.
 
-The cover page appears at the front, detailing the project name, the number of samples analysed, and the methylases present:
+The cover page appears at the front, detailing the project name, the number of samples analysed, and the investigated methylase patterns:
 
 <p align="center">
 <img alt="Cover page" title="Sequeduct Methyl" src="images/1_Cover.png" width="800">
@@ -64,8 +64,8 @@ The final page contains an Appendix that further explains the structure of the r
 
 * Inspect both the bedMethyl file saved for each barcode and sample, for example `barcode1_EGF_met_1.bed` as well as the final PDF report `EpiJinn_report.pdf`.
 * Review the main components constituting the reference plasmid from the 'plot of the sequence' per sample in the PDF report.
-* Observe the plots illustrating the methylated positions in the plasmid sequence per barcode. Each plot includes all methylation pattern of the specified methylase found in the plasmid. Patterns continaing a methylated base are shown in red, whilst undetermined modified bases are shown in yellow. Arrows refer to the strand the modification is present on.
-* Locate the methylated positions per barcode shown in red (with status '1') and the undetermined positions in yellow (with status 'U'). Match the location of the methylated positions stated in the bedMethyl tables to the reference sequence plot to identify the regions of the plasmid that the modifications occur in, taking the strand into consideration.
+* Observe the plots illustrating the methylated positions in the plasmid sequence per barcode. Each plot includes all methylation pattern of the specified methylase found in the plasmid. Patterns continaing a methylated base are shown in red, whilst bases with undetermined modification statuses are shown in yellow. Arrows refer to the strand the modification is present on.
+* Locate the methylated positions per barcode shown in red (with status '1') and the undetermined positions in yellow (with status 'U'). Patterns labelled as unmethylated in grey are marked with status '0'. Match the location of the methylated positions stated in the bedMethyl tables to the reference sequence plot to identify the regions of the plasmid that the modifications occur in, taking the strand into consideration.
 * Take note of the coverage for the positions marked as methylated (in red) in the PDF report. Positions with a methylated status that contain a low coverage may not reflect a genuine modified position. Therefore, positions with coverages below a chosen threshold may excluded from being classified as methylated due to this uncertainty. 
 * Utilise bedMethyl files for any further analysis desired. Only positions that contain a base status other than the canonical form from least one read are included in this file. Columns in the bedMethyl file correspond to the below, respectively. More information regarding these fields can be found on [Modkit's GitHub](https://github.com/nanoporetech/modkit).
 
@@ -86,9 +86,9 @@ Besides the parameters specified above, there are additional optional parameters
 
 * `--dorado_device` refers to the GPU utilised by Dorado. This is set by default to cuda:0, meaning it will run on the first CUDA-enabled GPU available. Modify this parameter to select the memory device available on your system. Refer to [Dorado](https://github.com/nanoporetech/dorado) for more information.
 
-* `--fasta_ref`, `--indexed_bam`, and `--html_file` can be set to "true" if you wish to save the FASTA reference file generated from the reference GenBank-format file, or the indexed BAM file, or the final HTML report respectively.
+* `--fasta_ref` and `--indexed_bam` can be set to "true" if you wish to save the FASTA reference file generated from the reference GenBank-format file, or the indexed BAM file respectively.
 
-* `--aligned_bam` and `--bedMethyl` can be set to "false" if you do not wish to save the aligned BAM file or bedMethyl table files respectively.
+* `--aligned_bam`, `--bedMethyl`, and `--html_file` can be set to "false" if you do not wish to save the aligned BAM file, bedMethyl table files, or the final HTML report respectively.
 
 Moreover, the [parameter sheet](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/blob/main/examples/param_sheet.csv) included as input through the `--param_sheet` parameter is utilised by the Python package [EpiJinn](https://github.com/Edinburgh-Genome-Foundry/EpiJinn/tree/main). It includes the methylation threshold for the proportion of all reads at each position required to classify the position as methylated (above `methylated_cutoff`), unmethylated (below `unmethylated_cutoff`), or undetermined (between `methylated_cutoff` and `unmethylated_cutoff`). These can be altered to be more stringent or lenient as you desire. The `methylases` parameter contains the methylases to consider the methylation patterns of. Methylations present in these methylase patterns will be identified and flagged. This parameter can take one or multiple methylases separated by a space.
 
