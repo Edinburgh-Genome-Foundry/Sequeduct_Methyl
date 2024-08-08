@@ -9,7 +9,7 @@ All extra files required for a demonstration run of Sequeduct Methyl are availab
 Sequeduct Methyl requires four input files in total. The `pod5_dir` and GenBank-format reference file from the [demo](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo) directory should be downloaded in a directory you wish to run the pipeline from. Additionally, download the `sample_sheet.csv` and `param_sheet.csv` from the [sheets](https://github.com/Edinburgh-Genome-Foundry/Sequeduct_Methyl/tree/main/demo/sheets) directory, and then the following can be run. Note that `--model_path` requires the full path to the basecalling model `dna_r10.4.1_e8.2_400bps_hac@v5.0.0` by [Dorado](https://github.com/nanoporetech/dorado).
 
 ```bash
-nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry analysis \
+nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.2 -entry analysis \
     --pod5_dir='./pod5_pass' \
     --genbank_dir='./genbank' \
     --sample_sheet='./sheets/sample_sheet.csv' \
@@ -63,7 +63,7 @@ The final page contains an Appendix that further explains the structure of the r
 ## Interpreting Pipeline Results
 
 * Inspect both the bedMethyl file saved for each barcode and sample, for example `barcode1_EGF_met_1.bed` as well as the final PDF report `EpiJinn_report.pdf`.
-* Review the main components constituting the reference plasmid from the 'plot of the sequence' per sample in the PDF report.
+* Review the main components constituting the reference plasmid from the 'plot of the sequence' per sample in the PDF report and compare this to the plasmid map of the reference GenBank-format file on a sequence editor.
 * Observe the plots illustrating the methylated positions in the plasmid sequence per barcode. Each plot includes all methylation pattern of the specified methylase found in the plasmid. Patterns continaing a methylated base are shown in red, whilst bases with undetermined modification statuses are shown in yellow. Arrows refer to the strand the modification is present on.
 * Locate the methylated positions per barcode shown in red (with status '1') and the undetermined positions in yellow (with status 'U'). Patterns labelled as unmethylated in grey are marked with status '0'. Match the location of the methylated positions stated in the bedMethyl tables to the reference sequence plot to identify the regions of the plasmid that the modifications occur in, taking the strand into consideration.
 * Take note of the coverage for the positions marked as methylated (in red) in the PDF report. Positions with a methylated status that contain a low coverage may not reflect a genuine modified position. Therefore, positions with coverages below a chosen threshold may excluded from being classified as methylated due to this uncertainty. 
