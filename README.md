@@ -91,7 +91,7 @@ docker build -f Sequeduct_Methyl/containers/Dockerfile --tag converter_docker .
 Alternatively, those with access to EGF's container repository such as EGF staff, can pull the Docker image using the following:
 
 ```bash
-docker pull ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:latest
+docker pull ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:v0.1.2
 ```
 
 Subsequently, the command below is run to convert the FAST5 to POD5. Insert the path from your current directory to the sample sheet using `--sample_sheet` and the full path to the main directory containing subdirectories for each sample with FAST5 files using `--fast5_dir`.
