@@ -39,7 +39,7 @@ dorado download --model dna_r10.4.1_e8.2_400bps_hac@v5.0.0
 Pull the Sequeduct Methyl Nextflow pipeline:
 
 ```bash
-nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1
+nextflow pull edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.2
 ```
 
 ### Run
@@ -51,7 +51,7 @@ Change to the directory you wish to create your pipeline analysis output in. Cop
 The following should be run on the command line:
 
 ```bash
-nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry analysis \
+nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.2 -entry analysis \
     --pod5_dir='path/to/pod5_pass' \
     --genbank_dir='path/to/genbank_ref/dir' \
     --sample_sheet='path/to/sample_sheet.csv' \
@@ -97,7 +97,7 @@ docker pull ghcr.io/edinburgh-genome-foundry/sequeduct_methyl:latest
 Subsequently, the command below is run to convert the FAST5 to POD5. Insert the path from your current directory to the sample sheet using `--sample_sheet` and the full path to the main directory containing subdirectories for each sample with FAST5 files using `--fast5_dir`.
 
 ```bash
-nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.1 -entry converter \
+nextflow run edinburgh-genome-foundry/Sequeduct_Methyl -r v0.1.2 -entry converter \
     --sample_sheet 'path/to/sample_sheet.csv' \
     --fast5_dir '/full/path/to/fast5_pass' \
     -with-docker converter_docker
